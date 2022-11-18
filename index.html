@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress - Decompress | pako.js + php zlib</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"
+        integrity="sha512-g2TeAWw5GPnX7z0Kn8nFbYfeHcvAu/tx6d6mrLe/90mkCxO+RcptyYpksUz35EO337F83bZwcmUyHiHamspkfg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <canvas id="sample" width="10240" height="10240" fillStyle="red"></canvas>
+
+    <script>
+        console.log(pako);
+        const store = {
+            some: 1,
+            two: 2,
+            asd: [1, 2, 3],
+            image: document.getElementById('sample').toDataURL()
+        }
+        console.log(store);
+
+        compressed(store);
+        regular(store);
+
+        function compressed(data) {
+            fetch('decompress.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain;charset=UTF-8'
+                },
+                body: pako.deflate(JSON.stringify(data))
+            })
+        }
+
+        function regular(data) {
+            fetch('regular.php', {
+                method: 'POST',
+                body: (() => {
+                    const fd = new FormData();
+                    fd.append('data', JSON.stringify(data))
+                    return fd;
+                })()
+            })
+        }
+    </script>
+</body>
+
+</html>
