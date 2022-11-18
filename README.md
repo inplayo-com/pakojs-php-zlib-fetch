@@ -54,3 +54,10 @@ Images below are screenshots from google chrome network inspector after requests
 ### Request data 10mb
 
 ![preview](readme/10mb.png)
+
+
+# Environment
+
+- PHP 7.2.34
+- pako.js 2.1.0
+- Google Chrome 107.0.5304.110 (Official Build) (x86_64)
