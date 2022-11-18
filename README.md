@@ -61,3 +61,12 @@ Images below are screenshots from google chrome network inspector after requests
 - PHP 7.2.34
 - pako.js 2.1.0
 - Google Chrome 107.0.5304.110 (Official Build) (x86_64)
+
+
+# Contributors
+
+<a href = "https://github.com/dendrofen">
+  <img src = "https://contrib.rocks/image?repo=dendrofen/dendrofen"/>
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
