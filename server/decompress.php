@@ -1,8 +1,8 @@
 <?php
 $data = file_get_contents('php://input');
-// $data = zlib_decode($data);
-// $data = json_decode($data);
 
-// var_dump($data);
-echo $data;
+//!!! uncomment this to perform decoding !!!!
+// $data = json_decode(zlib_decode($data));
+
+var_dump($data);
 exit;
