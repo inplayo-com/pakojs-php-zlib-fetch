@@ -13,15 +13,21 @@
 </head>
 
 <body>
-    <canvas id="sample" width="10240" height="10240" fillStyle="red"></canvas>
+    <canvas id="sample" width="10240" height="10240" style="width: 100px; height: 100px;"></canvas>
 
     <script>
-        console.log(pako);
+        let canvas = document.getElementById("sample");
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // console.log(pako);
+
         const store = {
             some: 1,
             two: 2,
             asd: [1, 2, 3],
-            image: document.getElementById('sample').toDataURL()
+            images: [...Array(2)].map(x => document.getElementById('sample').toDataURL())
         }
         console.log(store);
 
@@ -29,7 +35,7 @@
         regular(store);
 
         function compressed(data) {
-            fetch('decompress.php', {
+            fetch('server/decompress.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'text/plain;charset=UTF-8'
@@ -39,7 +45,7 @@
         }
 
         function regular(data) {
-            fetch('regular.php', {
+            fetch('server/simple.php', {
                 method: 'POST',
                 body: (() => {
                     const fd = new FormData();
