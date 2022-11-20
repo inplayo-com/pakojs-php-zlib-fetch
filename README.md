@@ -1,6 +1,6 @@
 ![preview](readme/preview.jpg)
 
-# Demo: pako.js + php zlib fetch
+# Demo: pako.js + php zlib (fetch version)
 
 Project demonstrate ability compress **client (browser) -> server** request using [pako.js](https://github.com/nodeca/pako) and default [zlib](https://www.php.net/manual/en/function.zlib-decode.php) php library.
 
